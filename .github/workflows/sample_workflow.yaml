@@ -1,0 +1,16 @@
+name: sample_workflow
+on:
+  workflow_dispatch:
+    inputs:
+      db1:
+        description: 'DB1 Name'
+        required: true
+      db2:
+        description: 'DB2 Name'
+        required: true
+
+jobs:
+  job1:
+    - runs: echo "First worflow harshit kalra"
+
+    
