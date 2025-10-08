@@ -11,6 +11,9 @@ on:
 
 jobs:
   job1:
-    - runs: echo "First worflow harshit kalra"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello Harshit
+        run : echo "Hello Harshit Kalra"
 
     
