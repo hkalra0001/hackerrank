@@ -1,0 +1,33 @@
+name: sample_workflow
+on: 
+  workflow_dispatch:
+  push:
+  pull_request:
+    branches:
+      - main
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo "Hello, World!"      
+      - name: Github Event that triggered this workflow
+        run: echo "This event was triggered by ${{ github.event_name }} event."
+      - name: Who ran this workflow
+        run: echo "This workflow was run by ${{ github.actor }}"
+      - name: Workflow is running on this runner
+        run: echo "This workflow is running on ${{ runner.os }} runner."
+      - name: List the files in repository
+        run: |
+          echo "Listing files in the repository:"
+          ls ${{ github.workspace }}
+      - name: Display GitHub Context
+        run: |
+          echo "Displaying GitHub Context:"
+          echo "${{ toJson(github) }}"
+      - name: Display Runner Context
+        run: |
+          echo "Displaying Runner Context:"
+          echo "${{ toJson(runner) }}"    
